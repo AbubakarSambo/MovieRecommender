@@ -1,6 +1,9 @@
 public class MovieRecommender {
 
 
+    //This method checks if the password to the site has the require length,
+    //at least 1 capital letter, 1 lower case letter, 1number,
+    //and that all the characters are alphanumeric.
 
     public static boolean isSecurePassword(String password) {
 
@@ -53,6 +56,12 @@ public class MovieRecommender {
         return final_ans;
     }
 
+
+    //this method compares 2 users and returns a double indicating how close they are
+    //A user is represented by an array containing that users ratings of several different movies
+    // Based on the 2 users ratings of movies, we can determine how 'close' these two users are
+    // with respect to their movie tastes.
+
     public static double compareUsers(int[] user1, int[] user2) {
 
 
@@ -103,6 +112,11 @@ public class MovieRecommender {
         return theta;
     }
 
+    //This method takes as input a user id and a 2d array which is an array
+    //of users(Remember each uses is represented by an array of movies he/she has rated),
+    // and a user id for which whe want to find the user nearest to.
+    // This method calls the compareUsers method and returns the index
+    //of the user nearest to the requested user.
     public static int findNearestUser(int[][] ratings, int userid) {
         int nearestIndex = -1;
         for (int i = 0; i < ratings.length; i++) {
@@ -117,42 +131,31 @@ public class MovieRecommender {
         return nearestIndex;
     }
 
+
+    //returns index of friendsratings array
+    //containing highest rated movie by friend not rated by userratings (5)
+    //find all users positions that 5 exists (movies not yet rated)
+    // go to friends ratings and return the index of highest rated position for which user has a 5
+
     public static int chooseBestUnratedMovie(int[] userRatings, int[] friendRatings) {
         int temp[] = new int[userRatings.length];
         int index = 0;
-
-
-        //returns index of friendsratings array
-        //containing highest rated movie by friend not rated by userratings (5)
-
-        //find all users positions that 5 exists (movies not yet rated)
-        // go to friends ratings and return the index of highest rated position for which user has a 5
-
         for (int i = 0; i < userRatings.length; i++) {
-
             if (userRatings[i] == 5) {
                 temp[i] = i;
-
             }
-
         }
 
         for (int j = 0; j < userRatings.length; j++) {
-
             if (j == temp[j]) {
                 if (friendRatings[j] > friendRatings[index]) {
 
                     index = j;
-
                 }
-
             }
 
         }
-        System.out.println(index);
         return index;
     }
-
-
 }
 
