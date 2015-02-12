@@ -1,1 +1,1 @@
-# MovieRecommender
+The Movie Recommender consists of a means by which a movie recommending application can suggest movies to users. It can compare two users based on common interests and if it can establish that 2 users are "friends", This program can suggest movies to on user based on the interests of a friend of that user
