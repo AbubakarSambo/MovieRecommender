@@ -1,13 +1,5 @@
 public class MovieRecommender {
 
-    public static void main(String[] args) {
-
-
-        int[] user = {5, 4, 3, 7, 2, 7, 5, 8, 9, 5};
-        int[] friend = {9, 2, 7, 3, 6, 9, 7, 4, 9, 3};
-        chooseBestUnratedMovie(user, friend);
-
-    }
 
 
     public static boolean isSecurePassword(String password) {
@@ -28,67 +20,37 @@ public class MovieRecommender {
         //check capital letter
         for (int i = 0; i < password.length(); i++) {
 
-            // String [] temp = password.split("");
-
             if ((password.codePointAt(i) > 64) && (password.codePointAt(i)) < 91) {
-
                 caps = true;
 
-
             }
-
         }
-
-
         for (int i = 0; i < password.length(); i++) {
-
-            // String [] temp = password.split("");
-
             if ((password.codePointAt(i) > 96) && (password.codePointAt(i)) < 123) {
-
                 low_case = true;
-
-
             }
-
         }
 
-
         for (int i = 0; i < password.length(); i++) {
-
-            // String [] temp = password.split("");
 
             if ((password.codePointAt(i) > 47) && (password.codePointAt(i)) < 58) {
-
                 number = true;
-
-
             }
-
         }
-
-
-        //alphanumeric
-
 
         for (int i = 0; i < password.length(); i++) {
             if ((password.codePointAt(i) < 48) || (password.codePointAt(i)) > 57 && password.codePointAt(i) < 65 || (password.codePointAt(i)) > 90 && password.codePointAt(i) < 97 || (password.codePointAt(i)) > 122) {
 
                 alphanumeric = false;
             }
-
         }
-
 
         if ((length) && (caps) && (low_case) && (number) && (alphanumeric)) {
             final_ans = true;
 
         }
 
-
         return final_ans;
-
-
     }
 
     public static double compareUsers(int[] user1, int[] user2) {
@@ -138,11 +100,8 @@ public class MovieRecommender {
         theta = Math.acos(temp);
 
 
-        //System.out.println(theta);
-
         return theta;
     }
-
 
     public static int findNearestUser(int[][] ratings, int userid) {
         int nearestIndex = -1;
@@ -160,7 +119,7 @@ public class MovieRecommender {
 
     public static int chooseBestUnratedMovie(int[] userRatings, int[] friendRatings) {
         int temp[] = new int[userRatings.length];
-        int index =0;
+        int index = 0;
 
 
         //returns index of friendsratings array
@@ -178,23 +137,21 @@ public class MovieRecommender {
 
         }
 
-            for (int j = 0; j < userRatings.length; j++) {
+        for (int j = 0; j < userRatings.length; j++) {
 
-                if (j == temp[j]) {
-                    if (friendRatings[j] > friendRatings[index]) {
+            if (j == temp[j]) {
+                if (friendRatings[j] > friendRatings[index]) {
 
-                        index = j;
-
-                    }
+                    index = j;
 
                 }
 
             }
+
+        }
         System.out.println(index);
         return index;
     }
-
-
 
 
 }
